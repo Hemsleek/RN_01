@@ -17,7 +17,9 @@ export default function App() {
     { color: 'blue' },
     { color: 'indigo' },
     { color: 'black' },
-    { color: 'yellow' }
+    { color: 'yellow' },
+    { color: 'violet' },
+    { color: 'dodgerblue' }
   ]
 
   const challengeDisplay = (ch) => ch == challenge
@@ -68,6 +70,7 @@ export default function App() {
               numColumns={2}
               keyExtractor={item => item.color}
               ItemSeparatorComponent={ItemSeparatorLine}
+              showsVerticalScrollIndicator={false}
             />
 
           </>
