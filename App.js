@@ -16,7 +16,8 @@ export default function App() {
     { color: 'green' },
     { color: 'blue' },
     { color: 'indigo' },
-    { color: 'black' }
+    { color: 'black' },
+    { color: 'yellow' }
   ]
 
   const challengeDisplay = (ch) => ch == challenge
@@ -42,7 +43,7 @@ export default function App() {
             <View style={styles.ch1}>
 
               {
-                boxes.map((col, colIndex) => (<View key={colIndex} style={styles[col]} />))
+                boxes.map((col, colIndex) => (<View key={`box-${colIndex}`} style={styles[col]} />))
               }
 
             </View>
@@ -63,9 +64,9 @@ export default function App() {
 
             <FlatList
               data={options}
-              renderItem={option => <View style={{ backgroundColor: option.item, height: 50, width: 50, flex: 1 }} />}
+              renderItem={option => <View style={{ backgroundColor: option.item.color, height: 180, flex: 1, borderRadius: 8, marginRight: 10 }} />}
               numColumns={2}
-              keyExtractor={item => item.id}
+              keyExtractor={item => item.color}
               ItemSeparatorComponent={ItemSeparatorLine}
             />
 
@@ -149,7 +150,12 @@ const ch3 = StyleSheet.create({
     height: 18
 
   },
-  searchInput: { flex: 1, paddingHorizontal: 10, fontSize: 16 },
+  searchInput: {
+    flex: 1,
+    paddingHorizontal: 10,
+    paddingVertical: 2,
+    fontSize: 16
+  },
   options: {
     flexDirection: 'row',
     flexWrap: 'wrap',
